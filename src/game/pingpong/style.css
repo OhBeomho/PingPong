@@ -1,0 +1,44 @@
+#GAMEPANE {
+	-fx-background-color: black;
+}
+
+#MAINPANE {
+	-fx-background-color: white;
+}
+
+Rectangle {
+	-fx-fill: white;
+}
+
+Label {
+	-fx-text-fill: white;
+	-fx-font-size: 20.0px;
+}
+
+#STARTLABEL, #WINLABEL {
+	-fx-font-size: 30.0px;
+}
+
+#TITLELABEL {
+	-fx-font-size: 40.0px;
+	-fx-text-fill: black;
+}
+
+#CKLABEL {
+	-fx-text-fill: black;
+}
+
+Button {
+	-fx-font-size: 20.0px;
+	-fx-background-color: white;
+	-fx-border-color: black;
+}
+
+Button:hover {
+	-fx-border-color: lightgray;
+}
+
+Button:pressed {
+	-fx-background-color: lightgray;
+	-fx-border-color: gray;
+}
