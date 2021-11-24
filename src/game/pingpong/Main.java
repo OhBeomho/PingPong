@@ -30,7 +30,7 @@ public class Main extends Application {
 	private AnimationTimer moveObjects, controlObjects;
 	private Button startButton, quitButton;
 
-	private boolean up0, down0, up1, down1, started;
+	private boolean up1, down1, up2, down2, started;
 	// up, down, left, right
 	private boolean[] ballMoves = new boolean[4];
 	private int player1Score, player2Score;
@@ -54,10 +54,10 @@ public class Main extends Application {
 		moveObjects = new AnimationTimer() {
 			@Override
 			public void handle(long now) {
-				if (up0) player1.setTranslateY(player1.getTranslateY() - PLAYER_SPEED);
-				if (down0) player1.setTranslateY(player1.getTranslateY() + PLAYER_SPEED);
-				if (up1) player2.setTranslateY(player2.getTranslateY() - PLAYER_SPEED);
-				if (down1) player2.setTranslateY(player2.getTranslateY() + PLAYER_SPEED);
+				if (up1) player1.setTranslateY(player1.getTranslateY() - PLAYER_SPEED);
+				if (down1) player1.setTranslateY(player1.getTranslateY() + PLAYER_SPEED);
+				if (up2) player2.setTranslateY(player2.getTranslateY() - PLAYER_SPEED);
+				if (down2) player2.setTranslateY(player2.getTranslateY() + PLAYER_SPEED);
 
 				if (ballMoves[0]) ball.setTranslateY(ball.getTranslateY() - BALL_SPEED);
 				if (ballMoves[1]) ball.setTranslateY(ball.getTranslateY() + BALL_SPEED);
@@ -82,12 +82,28 @@ public class Main extends Application {
 					&& player1.getTranslateY() + player1.getHeight() > ball.getTranslateY()
 					&& ball.getTranslateX() + ball.getWidth() > player1.getTranslateX()
 					&& ball.getTranslateY() + ball.getHeight() > player1.getTranslateY()) {
+					if (down1 == true) {
+						ballMoves[0] = false;
+						ballMoves[1] = true;
+					} else if (up1 == true) {
+						ballMoves[0] = true;
+						ballMoves[1] = false;
+					}
+
 					ballMoves[2] = false;
 					ballMoves[3] = true;
 				} else if (player2.getTranslateX() + player2.getWidth() > ball.getTranslateX()
 					&& player2.getTranslateY() + player2.getHeight() > ball.getTranslateY()
 					&& ball.getTranslateX() + ball.getWidth() > player2.getTranslateX()
 					&& ball.getTranslateY() + ball.getHeight() > player2.getTranslateY()) {
+						if (down2 == true) {
+							ballMoves[0] = false;
+							ballMoves[1] = true;
+						} else if (up2 == true) {
+							ballMoves[0] = true;
+							ballMoves[1] = false;
+						}
+
 						ballMoves[3] = false;
 						ballMoves[2] = true;
 					}
@@ -189,18 +205,18 @@ public class Main extends Application {
 		scoreLabel.translateXProperty().bind(stage.widthProperty().divide(2).subtract((scoreLabel.getText().length() * 10) / 2));
 
 		gamePane.setOnKeyPressed(e -> {
-			if (e.getCode() == KeyCode.W) up0 = true;
-			if (e.getCode() == KeyCode.S) down0 = true;
-			if (e.getCode() == KeyCode.UP) up1 = true;
-			if (e.getCode() == KeyCode.DOWN) down1 = true;
+			if (e.getCode() == KeyCode.W) up1 = true;
+			if (e.getCode() == KeyCode.S) down1 = true;
+			if (e.getCode() == KeyCode.UP) up2 = true;
+			if (e.getCode() == KeyCode.DOWN) down2 = true;
 
 			if (!started) startGame();
 		});
 		gamePane.setOnKeyReleased(e -> {
-			if (e.getCode() == KeyCode.W) up0 = false;
-			if (e.getCode() == KeyCode.S) down0 = false;
-			if (e.getCode() == KeyCode.UP) up1 = false;
-			if (e.getCode() == KeyCode.DOWN) down1 = false;
+			if (e.getCode() == KeyCode.W) up1 = false;
+			if (e.getCode() == KeyCode.S) down1 = false;
+			if (e.getCode() == KeyCode.UP) up2 = false;
+			if (e.getCode() == KeyCode.DOWN) down2 = false;
 		});
 
 		scene.getStylesheets().add(Main.class.getResource("style.css").toString());
