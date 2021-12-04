@@ -7,7 +7,6 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
@@ -28,7 +27,7 @@ public class Main extends Application {
 	private Rectangle ball, player1, player2;
 	private Label scoreLabel, startLabel, titleLabel, controlKeysLabel;
 	private AnimationTimer moveObjects, controlObjects;
-	private Button startButton, quitButton;
+	private AnimatedButton startButton, quitButton;
 
 	private boolean up1, down1, up2, down2, started;
 	// up, down, left, right
@@ -47,8 +46,8 @@ public class Main extends Application {
 		startLabel = new Label("PRESS ANY KEY TO START");
 		titleLabel = new Label("PING PONG GAME");
 		controlKeysLabel = new Label("--CONTROL KEYS--\n1P: W, S\n2P: UP_ARROW, DOWN_ARROW");
-		startButton = new Button("START");
-		quitButton = new Button("QUIT");
+		startButton = new AnimatedButton("START");
+		quitButton = new AnimatedButton("QUIT");
 		winLabel = new Label();
 
 		moveObjects = new AnimationTimer() {

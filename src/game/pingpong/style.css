@@ -28,17 +28,17 @@ Label {
 	-fx-text-fill: black;
 }
 
-Button {
+AnimatedButton {
 	-fx-font-size: 20.0px;
 	-fx-background-color: white;
 	-fx-border-color: black;
 }
 
-Button:hover {
+AnimatedButton:hover {
 	-fx-border-color: lightgray;
 }
 
-Button:pressed {
+AnimatedButton:pressed {
 	-fx-background-color: lightgray;
 	-fx-border-color: gray;
 }
