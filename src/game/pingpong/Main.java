@@ -2,6 +2,7 @@ package game.pingpong;
 
 import java.util.Random;
 
+import javafx.animatednodes.AnimatedButton;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -46,8 +47,8 @@ public class Main extends Application {
 		startLabel = new Label("PRESS ANY KEY TO START");
 		titleLabel = new Label("PING PONG GAME");
 		controlKeysLabel = new Label("--CONTROL KEYS--\n1P: W, S\n2P: UP_ARROW, DOWN_ARROW");
-		startButton = new AnimatedButton("START");
-		quitButton = new AnimatedButton("QUIT");
+		startButton = new AnimatedButton("START", 20);
+		quitButton = new AnimatedButton("QUIT", 20);
 		winLabel = new Label();
 
 		moveObjects = new AnimationTimer() {
