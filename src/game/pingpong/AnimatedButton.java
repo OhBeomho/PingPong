@@ -18,11 +18,11 @@ public class AnimatedButton extends Button {
 	public AnimatedButton(String text) {
 		super(text);
 
-		setPrefWidth(text.length() * 12);
+		setPrefWidth(text.length() * 20);
 		setPrefHeight(30);
 
 		maxWidth = getPrefWidth() + 10;
-		minWidth = getPrefWidth() - 10;
+		minWidth = getPrefWidth();
 
 		timeline = new Timeline();
 		mouseEnterValue = new KeyValue(prefWidthProperty(), maxWidth, Interpolator.EASE_IN);
